@@ -10,7 +10,7 @@ let no_motion = 0;
 GPIO.set_button_handler(motion_sensor, GPIO.PULL_UP, GPIO.INT_EDGE_ANY, 20, function() {
     if(GPIO.read(motion_sensor) === 0){
         print("Motions: ", motion++);
-        MQTT.sub('MOTION_SENSOR', 'Motion');
+        MQTT.pub('MOTION_SENSOR', 'motion');
     }
 }, null)
 
