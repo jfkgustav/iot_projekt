@@ -1,2 +1,8 @@
 # iot_projekt
-Här ska vi bygga ett grupprumsgrej
+
+## TODO
+
+  - Bestämma var olika delar av logiken ska sitta
+  - Timer på x minuter (kanske 30?).. Om ljud & rörelse inte har registrerats på x minuter avbokas rummet. Det räcker inte med antingen eller utan både ljud och rörelse ska registreras.
+  - Sätta upp broker
+  - Sätta upp grejorna i ett rum och testa
