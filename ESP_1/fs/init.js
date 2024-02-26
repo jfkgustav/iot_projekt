@@ -17,3 +17,5 @@ GPIO.set_button_handler(motion_sensor, GPIO.PULL_UP, GPIO.INT_EDGE_ANY, 20, func
 //Lägger till något
 
 let fuck;
+
+let fuckfuck;
