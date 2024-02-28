@@ -1,5 +1,6 @@
 load('api_gpio.js');
 load('api_timer.js');
+load('api_mqtt.js');
 let motion_sensor = 21;
 
 GPIO.set_mode(motion_sensor, GPIO.MODE_INPUT);
