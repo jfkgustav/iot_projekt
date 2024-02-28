@@ -4,6 +4,7 @@ load('api_sys.js'); // For GPIO read function
 load('api_adc.js');
 load('api_pwm.js');
 load('api_i2c.js');
+load('api_mqtt.js');
 
 
 let digitalPIN = 36;
@@ -24,10 +25,12 @@ function min_timer_callback() {
 	let checkV = GPIO.read(digitalPIN);
 	GPIO.write(ledPIN, checkV);
 	
-	
-	print('GPIO: ' + checkV);
-	MQTT.pub('SENSOR', checkV);
-	
+	if(checkV) {
+		print('GPIO: ' , checkV);
+		MQTT.pub('SENSOR', JSON.stringify(checkV));
+	}
 }
 
-Timer.set(100, Timer.REPEAT, min_timer_callback, null);
+Timer.set(20, Timer.REPEAT, min_timer_callback, null);
+
+
