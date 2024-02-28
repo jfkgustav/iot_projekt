@@ -25,7 +25,8 @@ function min_timer_callback() {
 	GPIO.write(ledPIN, checkV);
 	
 	
-	print('GPIO: ' checkV);
+	print('GPIO: ' + checkV);
+	MQTT.pub('SENSOR', checkV);
 	
 }
 
