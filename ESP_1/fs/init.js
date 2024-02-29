@@ -1,5 +1,6 @@
 load('api_gpio.js');
 load('api_timer.js');
+load('api_mqtt.js');
 let motion_sensor = 21;
 
 GPIO.set_mode(motion_sensor, GPIO.MODE_INPUT);
@@ -10,6 +11,8 @@ let no_motion = 0;
 GPIO.set_button_handler(motion_sensor, GPIO.PULL_UP, GPIO.INT_EDGE_ANY, 20, function() {
     if(GPIO.read(motion_sensor) === 0){
         print("Motions: ", motion++);
+        MQTT.pub('SENSOR', 'motion');
     }
-
 }, null)
+
+
